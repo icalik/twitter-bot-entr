@@ -60,7 +60,7 @@ function tweetIt(txt) {
 	T.post('statuses/update',tweet,tweeted);
 	function tweeted(err,data,response) {
 		if (err) {
-			console.log("Something went wrong on tweet!");
+			console.log("Something went wrong on tweet!" + err);
 		}
 		else{
 			console.log("It Works!");
