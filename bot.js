@@ -18,9 +18,9 @@ var stream = T.stream('user');
 
 stream.on('follow',followed);
 
-tweetWord();
+//tweetWord();
 
-setInterval(tweetWord,1000*10);
+setInterval(tweetWord,1000*10*);
 
 function tweetWord() {
 	
