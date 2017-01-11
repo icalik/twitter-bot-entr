@@ -18,20 +18,20 @@ var stream = T.stream('user');
 
 stream.on('follow',followed);
 
-//tweetWord();
+tweetWord();
 
-setInterval(tweetWord,1000*10*);
+setInterval(tweetWord,1000*60*60*2);
 
 function tweetWord() {
 	
 	loadJsonFile('./en-tr.json').then(json => {
     select_id = Math.floor(Math.random() * (61196 - 1 + 1)) + 1;
-    
-    function selectWord(id) {
-      return (json[id-1].English + " : " + json[id-1].Turkish);
+    select_id2 = Math.floor(Math.random() * (61196 - 1 + 1)) + 1;
+    function selectWord(id,id2) {
+      return (json[id-1].English + " : " + json[id-1].Turkish + "\n" + json[id2-1].English + " : " + json[id2-1].Turkish);
     }
-    
-    k = selectWord(select_id);
+    k = selectWord(select_id,select_id2);
+    //console.log(k);
     tweetIt(k);
     
 });
@@ -42,7 +42,7 @@ function followed(eventMsg) {
 	var screenName = eventMsg.source.screen_name;
 	var user_id = eventMsg.source.id;
 
-	tweetIt('@' + screenName + ' Takip ettiğin için teşekkürler, mobil bildirimleri açmayı unutma!');
+	//tweetIt('@' + screenName + ' Takip ettiğin için teşekkürler, mobil bildirimleri açmayı unutma!');
 
 	follow_user(user_id);
 }
