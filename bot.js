@@ -20,7 +20,7 @@ stream.on('follow',followed);
 
 tweetWord();
 
-setInterval(tweetWord,1000*60*60*2);
+setInterval(tweetWord,1000*60*5);
 
 function tweetWord() {
 	
